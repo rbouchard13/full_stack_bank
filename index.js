@@ -102,26 +102,6 @@ app.get('/account/all', authenticateJWT, function (req, res) {
     });
 });
 
-async function mail() {
-    let transporter = nodemailer.createTransport({
-        host: "smtp.ionos.com",
-        port: 587,
-        secure: false, 
-        auth: {
-          user: "dev@13media13.com", 
-          pass: "dev1313mail", 
-        },
-      });
-    
-      let info = await transporter.sendMail({
-        from: 'dev@13media13.com',
-        to: "snoopprophet@gmail.com",
-        cc: "snoopprophet@gmail.com",
-        replyTo: "snoopprophet@gmail.com",
-        subject: " new test",
-        html: `<b>badbank al data has been triggered</b>`,
-      });  
-}
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
